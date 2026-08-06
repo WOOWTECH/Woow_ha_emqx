@@ -4,6 +4,5 @@ source:
   current_version: v5.8.9
 config:
   version_template: "{{version}}"
-  image: woowtech/woow-emqx
 test:
   enable: true
