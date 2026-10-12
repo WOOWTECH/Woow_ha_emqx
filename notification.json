@@ -7,11 +7,11 @@
       "name": "Woow EMQX",
       "version": "5.9.0",
       "repository": "WOOWTECH/Woow_ha_emqx",
-      "source_sha": "70947402ddeb58e8f060e864b04fd789c02419da",
+      "source_sha": "a3667ec5c980e44a49ee9b3aa1bf6416d37899a9",
       "source_path": "emqx",
       "config_file": "config.yaml",
       "config_sha256": "sha256:a210a902bda64a06e92bc14fa3c6a88fa844c8d861c14ee786b3470f4a2c49f2",
-      "archive_sha256": "sha256:f7ea46d636de0cd6c46c004cf1cb2871a930d0a942c027658bdb8c1440d13007",
+      "archive_sha256": "sha256:950890d2b9f8e61ca92174a7cf6a837b0fe6189c5a558fbdab4aea79ed6ff25c",
       "context_fingerprint": "sha256:00b4f59f86200b097b6cf5cfecb8719d061806d82e2a35f8a97a0d8d1c72bb69",
       "material_fingerprint": "sha256:d93cb52682cb9df1efe65722b4a0a56d42b5ad8dd4dc85c65526df30a448d0f2",
       "architectures": [
@@ -62,7 +62,7 @@
       "images": {},
       "delivery": "local-source-build",
       "validation": "manifest+source-context+configured-CI (runtime build not certified)",
-      "publisher_run_id": "37410195634",
+      "publisher_run_id": "38209705947",
       "channel": "stable"
     }
   }
