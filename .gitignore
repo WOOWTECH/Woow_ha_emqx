@@ -16,3 +16,7 @@ Thumbs.db
 # Backup files
 *.tar.gz
 *.bak
+
+# Python
+__pycache__/
+*.pyc
