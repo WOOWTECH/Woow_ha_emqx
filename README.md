@@ -14,7 +14,7 @@ Home Assistant Mosquitto MQTT Broker 的進階替代方案,並提供圖形化管
 
 | Add-on | Description |
 |---|---|
-| [Woow EMQX](emqx/) | EMQX MQTT broker (v5.9.0, 內建 ngrok TCP tunnel) with the EMQX Dashboard (amd64 / aarch64) |
+| [Woow EMQX](emqx/) | Add-on v5.9.1 shipping the EMQX MQTT broker 5.8.9 (the last Apache-2.0 release; 5.9+ is the BSL enterprise edition and is not used), built-in ngrok TCP tunnel, EMQX Dashboard (amd64 / aarch64) |
 
 ## Installation | 安裝
 
@@ -24,7 +24,9 @@ Home Assistant Mosquitto MQTT Broker 的進階替代方案,並提供圖形化管
 2. Find **Woow EMQX** in the store and click **INSTALL**.
 3. Start the add-on, then open the Web UI. Default login is `admin` /
    `public` — change the password immediately in the Dashboard and enable
-   authentication under **Access Control → Authentication**.
+   authentication under **Access Control → Authentication**. Until you do,
+   EMQX accepts **anonymous** MQTT clients from your whole LAN (and from the
+   internet if you enable ngrok).
 4. Details, options and troubleshooting: [emqx/README.md](emqx/README.md)
 
 > **Migrated from `Woow_eqmx_docker_compose_all` (branch `ha`, note the typo
