@@ -122,22 +122,22 @@ class ReleaseGuardTest(unittest.TestCase):
         self.assertRejected("must retry")
 
     # --- version agreement ----------------------------------------------
+    def addon_version(self) -> str:
+        """The add-on version the repository ships now (config.yaml)."""
+        return re.search(r'^version: "([^"]+)"', (self.addon / "config.yaml").read_text(encoding="utf-8"), re.M)[1]
+
     def test_rejects_config_changelog_mismatch(self) -> None:
-        self.edit("config.yaml", 'version: "5.9.1"', 'version: "5.9.2"')
-        self.assertRejected("newest CHANGELOG section is 5.9.1")
+        version = self.addon_version()
+        self.edit("config.yaml", f'version: "{version}"', 'version: "99.0.0"')
+        self.assertRejected(f"newest CHANGELOG section is {version}")
 
     def test_rejects_changelog_not_newest_on_top(self) -> None:
         self.edit("CHANGELOG.md", "## v5.9.0", "## v5.9.5")
         self.assertRejected("newest version on top")
 
     def test_rejects_changelog_without_broker_version(self) -> None:
-        self.edit(
-            "CHANGELOG.md",
-            "Add-on 5.9.1; EMQX broker 5.8.9 (the last",
-            "Add-on 5.9.1 (the last",
-        )
         path = self.addon / "CHANGELOG.md"
-        newest = check_release.changelog_section(path.read_text(encoding="utf-8"), "5.9.1")
+        newest = check_release.changelog_section(path.read_text(encoding="utf-8"), self.addon_version())
         path.write_text(
             path.read_text(encoding="utf-8").replace(
                 newest, newest.replace("5.8.9", "5.8.x")
@@ -169,10 +169,10 @@ class ReleaseGuardTest(unittest.TestCase):
     def test_rejects_stale_root_readme(self) -> None:
         readme = self.tmp / "README.md"
         readme.write_text(
-            readme.read_text(encoding="utf-8").replace("v5.9.1", "v5.9.0"),
+            readme.read_text(encoding="utf-8").replace(f"v{self.addon_version()}", "v0.0.0"),
             encoding="utf-8",
         )
-        self.assertRejected("README.md does not mention add-on v5.9.1")
+        self.assertRejected(f"README.md does not mention add-on v{self.addon_version()}")
 
 
 class DockerfileContractTest(unittest.TestCase):
