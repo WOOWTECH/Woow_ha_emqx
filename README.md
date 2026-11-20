@@ -14,7 +14,7 @@ Home Assistant Mosquitto MQTT Broker 的進階替代方案,並提供圖形化管
 
 | Add-on | Description |
 |---|---|
-| [Woow EMQX](emqx/) | Add-on v5.9.1 shipping the EMQX MQTT broker 5.8.9 (the last Apache-2.0 release; 5.9+ is the BSL enterprise edition and is not used), built-in ngrok TCP tunnel, EMQX Dashboard (amd64 / aarch64) |
+| [Woow EMQX](emqx/) | Add-on v5.9.2 shipping the EMQX MQTT broker 5.8.9 (the last Apache-2.0 release; 5.9+ is the BSL enterprise edition and is not used), built-in ngrok TCP tunnel, EMQX Dashboard (amd64 / aarch64) |
 
 ## Installation | 安裝
 
